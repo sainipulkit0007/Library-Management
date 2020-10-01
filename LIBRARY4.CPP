@@ -1,7 +1,12 @@
+/* HEADER FILES */
+
 #include<fstream.h>
 #include<conio.h>
 #include<stdio.h>
 #include<string.h>
+
+/*   CLASS USED */
+
 class Book
 {
 protected:
@@ -24,6 +29,7 @@ gets(author);
 cout<<"\n Enter Category..";
 gets(category);
 }
+
 void Book::ShowBook()
 {
 cout<<"\n Book Number - "<<refno;
@@ -31,6 +37,8 @@ cout<<"\n Book Name - "<<bookname;
 cout<<"\n Author - "<<author;
 cout<<"\n Category - "<<category;
 }
+
+/* CLASS USED */
 class Person:public Book
 {
 protected:
@@ -41,6 +49,7 @@ public:
     char cardno[10];
     int noofbook;
 };
+
 void Person::Create()
 {
     cout<<"\n Enter Card No...";
@@ -50,12 +59,15 @@ void Person::Create()
     cout<<"\n Enter No of Book Issued..";
     cin>>noofbook;
 }
+
 void Person::Show()
 {
     cout<<"\n Card No - "<<cardno;
     cout<<"\n Person Name - "<<name;
     cout<<"\n No of Book Issued - "<<noofbook;
 }
+
+/* FUNCTION TO CREATE A BOOK RECORD */
 
 void AddRecord()
 {
@@ -67,6 +79,9 @@ void AddRecord()
     f1.close();
    cout<<"\n Book Record Created !!!!!";
 }
+
+/* FUNCTION TO CREATE A RECORD */ 
+
 void AddPerson()
 {
    ofstream f1;
@@ -77,6 +92,9 @@ void AddPerson()
     f1.close();
    cout<<"\n Person Record Created !!!!!";
 }
+
+/* FUNCTION TO DISPLAY ALL BOOK DETAILS */
+
 void DisplayBook()
 {
 Book B;
@@ -88,6 +106,9 @@ while(f1.read((char *)&B,sizeof(B)))
 B.ShowBook();
 f1.close();
 }
+
+/* FUNCTION TO DISPLAY PEOPLE DETAILS */
+
 void DisplayPerson()
 {
 Person P;
@@ -99,6 +120,9 @@ while(f1.read((char *)&P,sizeof(P)))
 P.Show();
 f1.close();
 }
+
+/* FUNCTION TO MODIFY BOOK DETAILS */
+
 void ModifyBook()
 {
 Book B;
@@ -129,6 +153,9 @@ else
 cout<<"\n Record Not Found..";
 }
 }
+
+/* FUNCTION TO MODIFY PUBLIC DETAILS */
+
 void ModifyPerson()
 {
 Person P;
@@ -159,6 +186,9 @@ else
 cout<<"\n Record Not Found..";
 }
 }
+
+/* FUNCTION TO DELETE BOOK DETAILS */
+
 void DeleteBook()
 {
 int f=0;
@@ -189,6 +219,9 @@ cout<<"\n Record is Deleted.....";
 else
 cout<<"\n record not found..";
 }
+
+/* FUNCTION TO DELETE PEOPLE DETAILS */
+
 void DeletePerson()
 {
 int f=0;
@@ -219,6 +252,9 @@ cout<<"\n Record is Deleted.....";
 else
 cout<<"\n record not found..";
 }
+
+/* FUNCTION TO ISSUE THE BOOK  */
+
 void Issue()
 {
 Person P;
@@ -268,6 +304,9 @@ cout<<"\n Otherwise fine of Rs.1/day is charged !!!";
     if(found==0)
       cout<<"\n Person Record Not Exist..";
 }
+
+/* FUNCTION TO RETURN THE BOOK */
+
 void Deposit()
 {
 Person P;
@@ -322,6 +361,10 @@ while(f1.read((char*)&P,sizeof(Person)))
     if(found==0)
     cout<<"\n Person Record Not Exist..";
 }
+
+
+/*  MENU  */
+
 void Menu()
 {
 int choice;
@@ -389,6 +432,10 @@ cin>>ch;
 }
 while(ch=='y'||ch=='Y');
 }
+
+
+/*  MAIN FUNCTION  */
+
 void main()
 {
 clrscr();
