@@ -276,7 +276,7 @@ while(f1.read((char*)&P,sizeof(Person)) && found==0)
  if(strcmpi(P.cardno,cn)==0)
    {
     found=1;
-    if(P.noofbook!=0)
+    if(P.noofbook==0)
      {
      while(f2.read((char*)&B,sizeof(Book))&&flag==0)
      {
